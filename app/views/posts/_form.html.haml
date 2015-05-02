@@ -1,5 +1,6 @@
 .forms
 	= simple_form_for @post do |f|
+		= f.text_field :tag_list
 		= f.input :image
 		= f.input :title
 		= f.input :link

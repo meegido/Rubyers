@@ -1,9 +1,15 @@
 class PostsController < ApplicationController
+
 	before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@posts = Post.all.order("created_at DESC")
+		 if params[:tag]
+		    @posts = Post.tagged_with(params[:tag])
+		  else
+		    @posts = Post.all.order("created_at DESC")
+		  end		
+		
 	end
 
 	def show
@@ -60,6 +66,6 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:title, :link, :description, :image, :image2)
+		params.require(:post).permit(:title, :link, :description, :image, :tag_list)
 	end
 end

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   	resources :comments
 	end
   root 'posts#index'
+  get 'tags/:tag', to: 'posts#index', as: :tag
 end
