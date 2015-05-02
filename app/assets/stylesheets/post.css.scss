@@ -1,7 +1,10 @@
+$mobile: new-breakpoint(max-width 640px);
+$tablet: new-breakpoint(max-width 965px);
+
 #post_show {
 	padding-top: 2rem;
 	.post_image_description {
-		width: 50%;
+		width: 80%;
 		float: left;
 		margin-right: 5%;
 	}
@@ -23,6 +26,7 @@
 		}
 		.data {
 			width: 100%;
+			@include span-columns(12);
 			display: block;
 			padding: .75rem 0;
 			border-bottom: 1px solid #E9E9E9;
@@ -55,7 +59,7 @@
 				h2 {
 					margin: 0;
 					font-weight: 100;
-					padding: 1rem 5%;
+					padding: 0 1em 5%;
 					border-bottom: 1px solid #E4E4E4;
 					font-size: 1.25rem;
 					a {
@@ -99,6 +103,8 @@
 		margin: 0 0 1.5rem 0;
 	}
 	.description {
+		max-width: 100%;
+		@include span-columns(12);
 		margin: 2rem 0;
 		font-size: 1.1rem;
 		line-height: 1.5;
@@ -107,8 +113,8 @@
 }
 
 #comments {
-	padding-bottom: 4rem;
-	width: 50%;
+	padding-bottom: 4em;
+	width: 100%;
 	.comment_count {
 		border-bottom: 1px solid #E9E9E9;
 		padding-bottom: .5rem;

@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 	def show
 		@comments = Comment.where(post_id: @post)
 		@random_post = Post.where.not(id: @post).order("RANDOM()").first
+		@random_post_2 = Post.where.not(id: @post).order("RANDOM()").last
 
 	end
 
@@ -59,6 +60,6 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:title, :link, :description, :image)
+		params.require(:post).permit(:title, :link, :description, :image, :image2)
 	end
 end

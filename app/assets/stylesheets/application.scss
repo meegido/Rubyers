@@ -1,0 +1,142 @@
+@import 'bourbon';
+@import "neat";
+@import 'home.css.scss';
+@import 'post.css.scss';
+
+$mobile: new-breakpoint(max-width 640px);
+$tablet: new-breakpoint(max-width 965px);
+
+
+body {
+	font-weight: 100;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+}
+
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.button {
+	border: 1px solid #9B9B9B;
+	padding: .7rem 1.25rem;
+	border-radius: .3rem;
+	outline: none;
+	background: white;
+	color: #9B9B9B;
+}
+
+header {
+	width: 100%;
+	padding: 2rem 0;
+	border-bottom: 1px solid #E4E4E4;
+	#logo {
+		float: left;
+		font-size: 1.75rem;
+		a {
+			color: #333233;
+			text-decoration: none;
+			&:hover {
+				color: #50A7C7;
+			}
+		}
+	}
+	nav {
+		float: right;
+		a {
+			margin-left: 1.5rem;
+			line-height: 2;
+			color: #9B9B9B;
+			text-decoration: none;
+			&:hover {
+				color: #50A7C7;
+			}
+		}
+	}
+}
+
+.forms{
+	form{
+	  width: 400px;
+	  margin: 0 auto 0;
+	}
+	.input-holder{
+	  position: relative;
+	  margin: 0 0 20px;
+	}
+	label{
+		margin-bottom: 10px;
+	}
+	input,
+	textarea{
+	  margin-top: 10px;
+	  border: 2px solid #ccc;
+	  border-radius: 4px;
+	  padding: 10px;
+	  width: 100%;
+	  resize: none;
+	  transition: .3s;
+	  &:focus{
+	    border: 2px solid #999;
+	    outline: none;
+	  }
+
+	}
+	textarea{
+	  min-height: 100px;
+	}
+}
+
+.clearfix{
+	#no-sidebar{
+		@include span-columns(8);
+		@include media($tablet) {
+      @include span-columns(12);
+      
+    }
+	}
+}
+
+#post_show{
+	#random_post{
+		@include media($tablet) {
+		  @include span-columns(4);
+	      width: 100%;
+	      float: right;
+	    
+	      
+	    }
+
+	}
+}
+
+#comments{
+	@include span-columns(12)
+}
+
+.description p{
+	margin-left: 2px;
+	word-wrap: break-word;
+}
+
+#posts{
+	.post{
+		@include media($tablet){
+			 
+		  width: 100%;
+		      
+		}
+	}
+}

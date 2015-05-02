@@ -1,3 +1,9 @@
+@import 'bourbon';
+@import "neat";
+
+$mobile: new-breakpoint(max-width 640px);
+$tablet: new-breakpoint(max-width 965px);
+
 #intro {
 	margin: 2.75rem 0 1.75rem 0;
 	text-align: center;
@@ -12,6 +18,7 @@
 	.post {
 		background: #F8F9FA;
 		width: 30%;
+		
 		float: left;
 		margin: 1rem 1.5%;
 		border: 1px solid #E4E4E4;
@@ -23,6 +30,16 @@
 				width: 100%;
 				border-radius: .3rem .3rem 0 0;
 			}
+		}
+		@include media($tablet){
+			 
+		  width: 47%;
+		      
+		}
+		@include media($mobile){
+			 
+		  width: 100%;
+		      
 		}
 		.post_content {
 			h2 {
