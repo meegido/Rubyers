@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502190859) do
+ActiveRecord::Schema.define(version: 20150504153745) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20150502190859) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "state",       default: "pending"
+    t.datetime "friended_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
