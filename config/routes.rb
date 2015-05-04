@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show, :index]
+  resources :friendships, only: [:create, :destroy, :accept] do
+    member do 
+      put :accept
+    end
+  end
   resources :posts do
   	member do
   		get "like", to: "posts#upvote"
