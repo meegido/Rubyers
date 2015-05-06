@@ -9,6 +9,9 @@
 		#no-sidebar
 			.post_image_description
 				= image_tag @post.image.url(:medium)
+				.tags
+					%li.tag
+						= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')
 				.description
 					%p= @post.description
 			.post_data

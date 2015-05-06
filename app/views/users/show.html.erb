@@ -1,64 +1,20 @@
-<div class="jumbotron">
-	<div class="container">
-
-		<div class="row">
-
-			<div class="col-md-4">
-				<%= gravatar_tag @user.email, size: 200 %>
-			</div>
-
-			<div class="col-md-4">
-				<h3><%= @user.username %></h3>
-				<p>Age: <%= @user.age %></p>
-				<p>Gender: <%= @user.gender %></p>
-			</div>
-
-			<div class="col-md-4">
-				<h3>Who am I</h3>
-				<small><%= @user.bio %></small>
-			</div>
-
-		</div>
-
+<div id="show_friends">
+<% @user.active_friends.last(16).each do |user| %>
+	
+	<div class="comment">
+	  <div class="comment-image">
+	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+	  </div>
+	  <div class="comment-content">
+	    <h1><%= user.name %></h1>
+	    
+	    <p class="comment-detail"><%= action_buttons(user)%></p>
+	  </div>
 	</div>
+	
+<% end %>
 </div>
 
-
-<div class="container">
-	<div class="row">
-	<!-- Friend Zone -->
-	<div class="col-md-3">
-	<div class="panel panel-default">
-	<div class="panel-heading">Friends (<%= @user.active_friends.size %>)
-	</div>
-	<div class="panel-body">
-
-	<% @user.active_friends.last(16).each do |user| %>
-	<%= link_to user_path(user.username) do %>
-		<%= gravatar_tag user.email, size: 40 %>
-	<% end %>
-	<% end %>
-
-	</div>
-
-	</div>
-	</div>
-	<!-- Post Zone -->
-	<div class="col-md-6">
-	<% if current_user && current_user == @user %>
-	<%= render "posts/form" %>
-	<% end %>
-	<%= render @posts %>
-	</div>
-	<!-- Profile Activity -->
-	<div class="col-md-3">
-		<div class="panel panel-default">
-		<div class="panel-heading">Recent Activity</div>
-		<div class="panel-body">
-			<%= render_activities(@activities) %>
-		</div>
-		</div>
-	</div>
-
-	</div>
-</div>
+<%= render_activities(@activities) %>
+<%= render_activities(@activityies, locals: {friends: current_user.active_friends}) %>
+	

@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	include PublicActivity::Model
 	acts_as_votable
 	acts_as_taggable
 	belongs_to :user

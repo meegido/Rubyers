@@ -1,0 +1,58 @@
+<div class="jumbotron text-center">
+<h1>Timeline</h1>
+<div class="btn-group" style='margin-bottom:2em;' role="group" aria-label="Default">
+<%= link_to "Everything", activities_path, class: "btn btn-default #{'active' unless params[:content]}" %>
+<%= link_to "Just Posts", activities_path(content: "posts"), class: "btn btn-default #{'active' if params[:content] == 'posts'}" %>
+</div>
+</div>
+
+
+
+<div class="container">
+	
+
+	<% @activities.each_with_index do |activity| %>
+	<% unless activity.trackable_type == "Friendship" && activity.owner == current_user %>
+	<% if activity.trackable %>
+	
+	
+	<div class="timeline-badge"></div>
+	<div class="timeline-panel">
+	<div class="timeline-heading">
+	
+	</div>
+	<div class="timeline-body">
+	<% case activity.trackable_type when "Post" %>
+	<div class="comment">
+  <div class="comment-image">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+  </div>
+  <div class="comment-content">
+    <p><%= link_to activity.owner.name, user_path(activity.owner.name) %> just posts something <%=  time_ago_in_words(activity.created_at)%> ago </p>
+    
+  </div>
+</div>
+	
+	<% when "Friendship" %>
+	<div class="comment">
+  <div class="comment-image">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+  </div>
+  <div class="comment-content">
+    
+    <p><%= link_to activity.owner.name, user_path(activity.owner.name) %> is now friends with <%= link_to activity.recipient.name, user_path(activity.recipient.name) %> </p>
+    <p><small><%=  time_ago_in_words(activity.created_at)%> ago</small></p>
+  </div>
+</div>
+	
+	<% end %>
+	
+	</div>
+	</div>
+
+	<% end %>
+	<% end %>
+	<% end %>
+
+	</ul>
+</div>

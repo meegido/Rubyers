@@ -16,12 +16,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @post = Post.new
+    @posts = @user.posts.order('created_at DESC')
+    @activities = PublicActivity::Activity.where(owner_id: @user.id) + PublicActivity::Activity.where(recipient_id: @user.id)
   end
 
   private
 
   def set_user
-  	@user = User.find_by(username: params[:id])
+  	@user = User.find_by(name: params[:id])
   end
 end

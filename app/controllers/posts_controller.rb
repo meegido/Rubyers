@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build(post_params)
 
 		if @post.save
+			@post.create_activity key: 'post.created', owner: @post.user
 			redirect_to @post
 		else
 			render 'new'
