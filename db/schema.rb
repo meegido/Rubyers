@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505173433) do
+ActiveRecord::Schema.define(version: 20150507223120) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20150505173433) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "directions", force: true do |t|
+    t.text     "step"
+    t.string   "gist"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "directions", ["post_id"], name: "index_directions_on_post_id"
 
   create_table "friendships", force: true do |t|
     t.integer  "user_id"

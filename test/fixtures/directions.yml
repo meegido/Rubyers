@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  step: MyText
+  gist: MyString
+  post_id: 
+
+two:
+  step: MyText
+  gist: MyString
+  post_id: 

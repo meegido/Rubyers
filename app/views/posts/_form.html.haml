@@ -5,5 +5,9 @@
 		= f.input :title
 		= f.input :link
 		= f.input :description
-
+		#description
+			= f.simple_fields_for :directions do |direction|
+				= render 'direction_fields', :f => direction
+			.links 
+				= link_to_add_association 'add direction', f, :directions
 		= f.button :submit

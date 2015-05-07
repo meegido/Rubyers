@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require gist-embed
+//= require cocoon
 
 
 $(document).ready(function(){

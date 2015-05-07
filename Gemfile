@@ -18,3 +18,5 @@ gem 'bourbon'
 gem 'neat'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'public_activity'
+gem 'gist-embed-rails'
+gem "cocoon"
