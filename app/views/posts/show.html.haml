@@ -16,9 +16,9 @@
 					= @post.description
 					#directions
 						%h2 Pasos
-						%ul
+						%ul.directions
 							- @post.directions.each do |direction|
-								%li= direction.step
+								%li.steps= direction.step
 								%code{"data-gist-id" => "#{direction.gist}"}
 			.post_data
 				= link_to "Visit Link", @post.link, class: "button"

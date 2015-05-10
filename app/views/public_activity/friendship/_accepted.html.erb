@@ -1,3 +1,7 @@
 <% if activity.trackable %>
-<p><%= link_to activity.owner.name, user_path(activity.owner.name) %> is now friends with <%= link_to  activity.recipient.name, user_path(activity.recipient.id) %></p>
+<a href="javascript:void(0)" class="grid-item">
+	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+
+<h1><%= activity.owner.name %> is now friends with <%= activity.recipient.name %></h1>
+</a>
 <% end %>

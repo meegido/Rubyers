@@ -1,20 +1,17 @@
-<div id="show_friends">
-<% @user.active_friends.last(16).each do |user| %>
-	
-	<div class="comment">
-	  <div class="comment-image">
-	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
-	  </div>
-	  <div class="comment-content">
-	    <h1><%= user.name %></h1>
-	    
-	    <p class="comment-detail"><%= action_buttons(user)%></p>
-	  </div>
+<div class="hero">
+	<div class="hero-inner">
+    <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+		<div class="hero-copy">
+			<h1><%= @user.name %></h1>
+			<p><%= @user.email %></p>	
+		</div>
+    <button>Learn More</button>
 	</div>
-	
-<% end %>
 </div>
 
+<div class="grid-items">
 <%= render_activities(@activities) %>
-<%= render_activities(@activityies, locals: {friends: current_user.active_friends}) %>
+</div>
+
 	

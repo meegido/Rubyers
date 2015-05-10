@@ -347,35 +347,44 @@ header {
   width: (100% / 12) * $columns;
 }
 
-.grid-items-lines {
+.grid-items {
+  $action-color: #477DCA !default;
   $base-background-color: white !default;
-  $dark-gray: #333 !default;
-  $light-gray: #DDD !default;
   $medium-screen: em(640) !default;
   $large-screen: em(860) !default;
-  $base-font-color: $dark-gray !default;
   $grid-items-background: $base-background-color;
-  $grid-item-background: $base-background-color;
-  $grid-item-border: 1px solid transparentize($base-font-color, 0.8); 
+  $grid-item-background: desaturate($action-color, 30%);
+  $grid-item-colors: 
+    desaturate($action-color, 30%), 
+    #3581A5, 
+    #5FBEBE,
+    #98C79A,
+    #A7A891, 
+    #BDCC97,
+    #979EA0;
+  $grid-item-border-size: 9px;
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
-  $grid-item-color: $base-font-color;
+  $grid-item-color: white;
   $grid-item-height: 14em;
 
   @include clearfix;
-  position: relative;
+  margin-top:2em;
     
   .grid-item {
     @include transition (all 0.2s ease-in-out);
     background: $grid-item-background;
-    border-bottom: $grid-item-border;
-    border-right: $grid-item-border;
+    border-bottom: $grid-item-border-size solid $grid-items-background;
+    border-left: ($grid-item-border-size / 2) solid $grid-items-background;
+    border-right: ($grid-item-border-size / 2) solid $grid-items-background;
+    border-top: 0;
     cursor: pointer;
     float: left;
     height: $grid-item-height;
     overflow: hidden;
     outline: none;
     padding: 2em;
+    text-align: center;
     text-decoration: none;
     width: 100%;
 
@@ -383,17 +392,28 @@ header {
       @include grid-item-columns($grid-item-columns);
     }
 
-    &:focus,
-    &:hover {
-      background: transparentize($grid-item-color, 0.95);
+    @for $i from 1 through length($grid-item-colors) { // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        $background-from-list: nth($grid-item-colors, $i);
+        background-color: $background-from-list;
+        box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10%);
+
+        &:focus,
+        &:hover {
+          background-color: darken($background-from-list, 10%);
+          background-repeat: no-repeat;
+          background-position: top;
+          background-size: cover;
+        }
+      }
     }
   }
 
   .grid-item img {
       display: block;
-      height: 2.5em;
-      margin-bottom: 1.2em;
-      opacity: 0.2;
+      height: 3em;
+      margin-bottom: 1em;
+      margin: auto;
     }
 
   .grid-item h1 {
@@ -403,8 +423,9 @@ header {
     }
 
   .grid-item p {
-      color: transparentize($grid-item-color, 0.4);
       line-height: 1.5em;
+      margin: auto;
+      color: transparentize($grid-item-color, 0.3);
       
       @include media($medium-screen) {
         max-width: 70%;
@@ -416,34 +437,29 @@ header {
       @include grid-item-columns($grid-item-big-columns);
     }
     p {
-      position: absolute;
       @include media($medium-screen) {
         max-width: 60%;
-      }
-    p a {
-      list-style: none;
-      text-decoration: none;
-    } 
+      }  
     }
   }
 
-  // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
-  .bottom-cover {
-    background: $grid-items-background;
-    bottom: 0px;
-    height: 3px;
-    position: absolute;
-    width: 100%;
-  }
-
-  .right-cover {
-    background: $grid-items-background;
-    height: 100%;
-    position: absolute;
-    right: 0px;
-    width: 4px;
+  .grid-item-image {
+    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
+    background-color: $grid-item-background;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
+.directions{
+  padding-left: 0px;
+}
+
+.steps{
+  list-style: none;
+}
+
+.videoshow-step{font-size:1.2em;text-transform:uppercase;font-weight:700;margin-bottom:0px;color:#B8B8B8;margin-top:40px;background:white;width:50px;z-index:1;height:10px;position:relative}
 
 
