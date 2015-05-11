@@ -2,6 +2,6 @@
 <a href="javascript:void(0)" class="grid-item">
 	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
 
-<h1><%= activity.owner.name %> posted something <%= time_ago_in_words(activity.created_at) %> ago</h1>
+<p><%= activity.owner.name %> posted <%= activity.trackable.title %> <%= time_ago_in_words(activity.created_at) %> ago</p>
 </a>
 <% end %>
