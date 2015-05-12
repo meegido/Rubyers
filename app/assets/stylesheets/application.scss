@@ -69,37 +69,7 @@ header {
 	}
 }
 
-.forms{
-	form{
-	  width: 400px;
-	  margin: 0 auto 0;
-	}
-	.input-holder{
-	  position: relative;
-	  margin: 0 0 20px;
-	}
-	label{
-		margin-bottom: 10px;
-	}
-	input,
-	textarea{
-	  margin-top: 10px;
-	  border: 2px solid #ccc;
-	  border-radius: 4px;
-	  padding: 10px;
-	  width: 100%;
-	  resize: none;
-	  transition: .3s;
-	  &:focus{
-	    border: 2px solid #999;
-	    outline: none;
-	  }
 
-	}
-	textarea{
-	  min-height: 100px;
-	}
-}
 
 .clearfix{
 	#no-sidebar{
@@ -128,10 +98,7 @@ header {
 	@include span-columns(12)
 }
 
-.description p{
-	margin-left: 2px;
-	word-wrap: break-word;
-}
+
 
 #posts{
 	.post{
@@ -285,16 +252,16 @@ header {
 }
 // Inspired by code by www.HUSAMUI.com
 
-
-
-
-.directions{
-  padding-left: 0px;
+.post-img{
+  width: 100px;
+  height: auto;
+  margin-right: 40px;
 }
 
-.steps{
-  list-style: none;
-}
+
+
+
+
 
 .videoshow-step{font-size:1.2em;text-transform:uppercase;font-weight:700;margin-bottom:0px;color:#B8B8B8;margin-top:40px;background:white;width:50px;z-index:1;height:10px;position:relative}
 

@@ -19,6 +19,7 @@
 						%ul.directions
 							- @post.directions.each do |direction|
 								%li.steps= direction.step
+								%p= direction.place
 								%code{"data-gist-id" => "#{direction.gist}"}
 			.post_data
 				= link_to "Visit Link", @post.link, class: "button"

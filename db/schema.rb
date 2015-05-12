@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507223120) do
+ActiveRecord::Schema.define(version: 20150511113947) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150507223120) do
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "place"
   end
 
   add_index "directions", ["post_id"], name: "index_directions_on_post_id"
