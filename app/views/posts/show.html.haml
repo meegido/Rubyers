@@ -13,12 +13,12 @@
 					%li.tag
 						= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')
 				.description
-					= @post.description
+					= markdown(@post.description)
 					#directions
 						%h2 Pasos
 						%ul.directions
 							- @post.directions.each do |direction|
-								%li.steps= direction.step
+								%li.steps= markdown(direction.step)
 								%p= direction.place
 								%code{"data-gist-id" => "#{direction.gist}"}
 			.post_data
