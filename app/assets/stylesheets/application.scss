@@ -70,17 +70,6 @@ header {
 }
 
 
-
-.clearfix{
-	#no-sidebar{
-		@include span-columns(8);
-		@include media($tablet) {
-      @include span-columns(12);
-      
-    }
-	}
-}
-
 #post_show{
 	#random_post{
 		@include media($tablet) {
@@ -95,7 +84,7 @@ header {
 }
 
 #comments{
-	@include span-columns(12)
+	@include span-columns(10)
 }
 
 
@@ -257,11 +246,6 @@ header {
   height: auto;
   margin-right: 40px;
 }
-
-
-
-
-
 
 .videoshow-step{font-size:1.2em;text-transform:uppercase;font-weight:700;margin-bottom:0px;color:#B8B8B8;margin-top:40px;background:white;width:50px;z-index:1;height:10px;position:relative}
 

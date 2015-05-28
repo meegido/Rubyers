@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
 
 	def index
 		@users = current_user.active_friends
-		@users.push(current_user)
+		# @users.push(current_user) esta linea permite que el current user aparezca en el timeline como un user mas
 		case params[:content] when 'posts'
 			@activities = PublicActivity::Activity.where(owner_id: @users, trackable_type: "Post").order('created_at DESC')
 		else
